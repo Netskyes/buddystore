@@ -41,7 +41,7 @@ namespace StoreVersionUploader
                     webclient.UploadStringCompleted += Webclient_UploadStringCompleted;
 
                     webclient.Headers[HttpRequestHeader.ContentType] = "application/json";
-                    webclient.UploadStringAsync(new Uri("https://store.buddyauth.com:8337/api/restapi/submitversion"), JsonConvert.SerializeObject(options));
+                    webclient.UploadStringAsync(new Uri("https://store.buddyauth.com/api/restapi/submitversion"), JsonConvert.SerializeObject(options));
                 }
 
                 Log("Product successfully uploaded, compiling...");

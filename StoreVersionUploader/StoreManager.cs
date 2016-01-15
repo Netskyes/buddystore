@@ -99,6 +99,7 @@ namespace StoreVersionUploader
             {
                 Utils.InvokeOn(window.txtbox_ProductNameInput, () => window.txtbox_ProductNameInput.Text = string.Empty);
                 Utils.InvokeOn(window.txtbox_ProductIdInput, () => window.txtbox_ProductIdInput.Text = string.Empty);
+                Utils.InvokeOn(window.txtbox_ProductFolderPathInput, () => window.txtbox_ProductFolderPathInput.Text = string.Empty);
             }
 
 

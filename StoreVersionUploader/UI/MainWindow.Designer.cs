@@ -312,9 +312,9 @@
             // btn_AssignAPIKey
             // 
             this.btn_AssignAPIKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AssignAPIKey.Location = new System.Drawing.Point(230, 25);
+            this.btn_AssignAPIKey.Location = new System.Drawing.Point(300, 25);
             this.btn_AssignAPIKey.Name = "btn_AssignAPIKey";
-            this.btn_AssignAPIKey.Size = new System.Drawing.Size(54, 29);
+            this.btn_AssignAPIKey.Size = new System.Drawing.Size(81, 29);
             this.btn_AssignAPIKey.TabIndex = 17;
             this.btn_AssignAPIKey.Text = "Assign";
             this.btn_AssignAPIKey.UseVisualStyleBackColor = true;
@@ -324,7 +324,7 @@
             // 
             this.txtbox_APIKeyInput.Location = new System.Drawing.Point(8, 25);
             this.txtbox_APIKeyInput.Name = "txtbox_APIKeyInput";
-            this.txtbox_APIKeyInput.Size = new System.Drawing.Size(216, 20);
+            this.txtbox_APIKeyInput.Size = new System.Drawing.Size(277, 20);
             this.txtbox_APIKeyInput.TabIndex = 16;
             // 
             // label10
@@ -339,7 +339,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(83, 306);
+            this.label9.Location = new System.Drawing.Point(5, 408);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 14;
@@ -347,16 +347,16 @@
             // 
             // txtbox_ProductFolderPathInput
             // 
-            this.txtbox_ProductFolderPathInput.Location = new System.Drawing.Point(86, 322);
+            this.txtbox_ProductFolderPathInput.Location = new System.Drawing.Point(8, 424);
             this.txtbox_ProductFolderPathInput.Name = "txtbox_ProductFolderPathInput";
             this.txtbox_ProductFolderPathInput.ReadOnly = true;
-            this.txtbox_ProductFolderPathInput.Size = new System.Drawing.Size(138, 20);
+            this.txtbox_ProductFolderPathInput.Size = new System.Drawing.Size(215, 20);
             this.txtbox_ProductFolderPathInput.TabIndex = 13;
             // 
             // btn_FolderPath
             // 
             this.btn_FolderPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FolderPath.Location = new System.Drawing.Point(230, 320);
+            this.btn_FolderPath.Location = new System.Drawing.Point(239, 422);
             this.btn_FolderPath.Name = "btn_FolderPath";
             this.btn_FolderPath.Size = new System.Drawing.Size(46, 23);
             this.btn_FolderPath.TabIndex = 12;
@@ -384,23 +384,23 @@
             this.dtg_ProductList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtg_ProductList.RowHeadersVisible = false;
             this.dtg_ProductList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtg_ProductList.Size = new System.Drawing.Size(414, 109);
+            this.dtg_ProductList.Size = new System.Drawing.Size(414, 218);
             this.dtg_ProductList.TabIndex = 11;
             this.dtg_ProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_ProductList_CellDoubleClick);
             this.dtg_ProductList.SelectionChanged += new System.EventHandler(this.dtg_ProductList_SelectionChanged);
             // 
             // productId
             // 
-            this.productId.FillWeight = 5.076141F;
+            this.productId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productId.FillWeight = 42.6396F;
             this.productId.HeaderText = "ID";
             this.productId.Name = "productId";
             this.productId.ReadOnly = true;
-            this.productId.Width = 80;
             // 
             // productName
             // 
             this.productName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productName.FillWeight = 194.9239F;
+            this.productName.FillWeight = 155.8464F;
             this.productName.HeaderText = "Name";
             this.productName.Name = "productName";
             this.productName.ReadOnly = true;
@@ -408,6 +408,7 @@
             // productPath
             // 
             this.productPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productPath.FillWeight = 101.5141F;
             this.productPath.HeaderText = "Path";
             this.productPath.Name = "productPath";
             this.productPath.ReadOnly = true;
@@ -415,7 +416,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 264);
+            this.label8.Location = new System.Drawing.Point(5, 366);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 13);
             this.label8.TabIndex = 10;
@@ -423,7 +424,7 @@
             // 
             // txtbox_ProductIdInput
             // 
-            this.txtbox_ProductIdInput.Location = new System.Drawing.Point(8, 280);
+            this.txtbox_ProductIdInput.Location = new System.Drawing.Point(8, 382);
             this.txtbox_ProductIdInput.Name = "txtbox_ProductIdInput";
             this.txtbox_ProductIdInput.Size = new System.Drawing.Size(72, 20);
             this.txtbox_ProductIdInput.TabIndex = 50;
@@ -431,9 +432,9 @@
             // btn_AddProductName
             // 
             this.btn_AddProductName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AddProductName.Location = new System.Drawing.Point(368, 280);
+            this.btn_AddProductName.Location = new System.Drawing.Point(300, 382);
             this.btn_AddProductName.Name = "btn_AddProductName";
-            this.btn_AddProductName.Size = new System.Drawing.Size(54, 29);
+            this.btn_AddProductName.Size = new System.Drawing.Size(81, 29);
             this.btn_AddProductName.TabIndex = 7;
             this.btn_AddProductName.Text = "Add";
             this.btn_AddProductName.UseVisualStyleBackColor = true;
@@ -442,7 +443,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(83, 264);
+            this.label6.Location = new System.Drawing.Point(83, 366);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 6;
@@ -450,7 +451,7 @@
             // 
             // txtbox_ProductNameInput
             // 
-            this.txtbox_ProductNameInput.Location = new System.Drawing.Point(86, 280);
+            this.txtbox_ProductNameInput.Location = new System.Drawing.Point(86, 382);
             this.txtbox_ProductNameInput.Name = "txtbox_ProductNameInput";
             this.txtbox_ProductNameInput.Size = new System.Drawing.Size(199, 20);
             this.txtbox_ProductNameInput.TabIndex = 51;
@@ -544,12 +545,12 @@
         public System.Windows.Forms.TextBox txtbox_ProductName;
         public System.Windows.Forms.TextBox txtbox_ProductZipFile;
         public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.DataGridViewTextBoxColumn productPath;
-        public System.Windows.Forms.DataGridViewTextBoxColumn productName;
-        public System.Windows.Forms.DataGridViewTextBoxColumn productId;
         public System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox txtbox_ProductId;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productPath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productId;
     }
 }
 

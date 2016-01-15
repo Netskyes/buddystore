@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO;
 
@@ -63,7 +64,9 @@ namespace StoreVersionUploader
 
                 Utils.InvokeOn(txtbox_Version, () =>
                 {
-                    if (txtbox_Version.Text.Length == 0) txtbox_Version.Text = Path.GetFileNameWithoutExtension(dialog.FileName);
+                    Match match = new Regex(@"([0-9\.]+)").Match(Path.GetFileNameWithoutExtension(dialog.FileName));
+
+                    if (txtbox_Version.Text.Length == 0) txtbox_Version.Text = match.Value;
                 });
             }
         }

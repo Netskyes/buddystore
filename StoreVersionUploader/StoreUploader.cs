@@ -41,7 +41,7 @@ namespace StoreVersionUploader
                     webclient.UploadStringCompleted += Webclient_UploadStringCompleted;
 
                     webclient.Headers[HttpRequestHeader.ContentType] = "application/json";
-                    webclient.UploadStringAsync(new Uri("https://store.buddyauth.com/api/restapi/submitversion"), JsonConvert.SerializeObject(options));
+                    webclient.UploadString(new Uri("https://store.buddyauth.com/api/restapi/submitversion"), JsonConvert.SerializeObject(options));
                 }
 
                 Log("Product successfully uploaded, compiling...");
@@ -54,7 +54,6 @@ namespace StoreVersionUploader
                 {
                     var serializer = new JsonSerializer();
 
-                    // ReSharper disable once AssignNullToNotNullAttribute
                     using (var sr = new StreamReader(wex.Response.GetResponseStream()))
                     using (var jsonTextReader = new JsonTextReader(sr))
                     {
@@ -63,7 +62,7 @@ namespace StoreVersionUploader
                 }
                 else
                 {
-                    Log(wex.ToString());
+                    // wex out
                 }
             }
         }

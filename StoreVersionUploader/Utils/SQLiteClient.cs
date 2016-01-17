@@ -1,11 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 using System.Data.SQLite;
-using System.Windows.Forms;
+
 
 namespace StoreVersionUploader
 {
@@ -36,31 +33,37 @@ namespace StoreVersionUploader
         private void Defaults()
         {
             string productsQuery = "CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, product_id INTEGER NOT NULL UNIQUE, path TEXT, api_key TEXT);";
-            Execute(productsQuery);
-
-            /*
-            string apikeysQuery = "CREATE TABLE api_keys (id INTEGER PRIMARY KEY AUTOINCREMENT, key	TEXT NOT NULL UNIQUE);";
-            Execute(apikeysQuery);
-            */
+            ExecuteCommand(Command(productsQuery));
         }
 
 
-        public int Execute(string query)
+        public SQLiteCommand Command(string query, SQLiteParameter[] queryParams = null)
         {
-            SQLiteCommand command = new SQLiteCommand(query, conn);
+            SQLiteCommand command = conn.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = query;
+
+
+            if(queryParams != null)
+            {
+                command.Parameters.AddRange(queryParams);
+            }
+
+            return command;
+        }
+
+        public int ExecuteCommand(SQLiteCommand command)
+        {
             return command.ExecuteNonQuery();
         }
 
-        public SQLiteDataReader ExecuteReader(string query)
+        public SQLiteDataReader ExecuteReader(SQLiteCommand command)
         {
-            SQLiteCommand command = new SQLiteCommand(query, conn);
             return command.ExecuteReader();
         }
 
-        public int NumRows(string query)
+        public int NumRows(SQLiteCommand command)
         {
-            SQLiteCommand command = new SQLiteCommand(query, conn);
-
             return Convert.ToInt32(command.ExecuteScalar());
         }
     }

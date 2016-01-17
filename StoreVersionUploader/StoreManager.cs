@@ -89,13 +89,19 @@ namespace StoreVersionUploader
 
             string numQuery = String.Format("SELECT COUNT(product_id) FROM products WHERE product_id={0}", productId);
 
-            if (sqlite.NumRows(numQuery) > 0) return;
+            if (sqlite.NumRows(sqlite.Command(numQuery)) > 0) return;
             
 
 
-            string query = String.Format("INSERT INTO products (name, product_id, path) VALUES('{0}', {1}, '{2}')", productName, productId, tempProductFolderPath);
+            string query = String.Format("INSERT INTO products (name, product_id, path) VALUES(@productName, '{0}', '{1}')", productId, tempProductFolderPath);
 
-            if(sqlite.Execute(query) > 0)
+            var sqliteParams = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@productName", productName)
+            };
+
+
+            if(sqlite.ExecuteCommand(sqlite.Command(query, sqliteParams)) > 0)
             {
                 Utils.InvokeOn(window.txtbox_ProductNameInput, () => window.txtbox_ProductNameInput.Text = string.Empty);
                 Utils.InvokeOn(window.txtbox_ProductIdInput, () => window.txtbox_ProductIdInput.Text = string.Empty);
@@ -109,12 +115,13 @@ namespace StoreVersionUploader
         public bool DeleteProduct(int productId)
         {
             string query = String.Format("DELETE FROM products WHERE product_id={0}", productId);
-            return (sqlite.Execute(query) > 0) ? true : false;
+
+            return (sqlite.ExecuteCommand(sqlite.Command(query)) > 0) ? true : false;
         }
 
         public void LoadProductsList()
         {
-            SQLiteDataReader reader = sqlite.ExecuteReader("SELECT * FROM products ORDER BY id DESC");
+            SQLiteDataReader reader = sqlite.ExecuteReader(sqlite.Command("SELECT * FROM products ORDER BY id DESC"));
 
             var products = new List<Product>();
 
@@ -161,7 +168,5 @@ namespace StoreVersionUploader
 
             Utils.InvokeOn(window.txtbox_APIKey, () => window.txtbox_APIKey.Text = APIKey);
         }
-
-
     }
 }

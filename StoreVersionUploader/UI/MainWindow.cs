@@ -29,7 +29,7 @@ namespace StoreVersionUploader
             cmbox_VersionType.SelectedIndex = 1;
             isWindowLoaded = true;
 
-            txtbox_Console.AppendText("Store Version Uploader 1.0.2" + Environment.NewLine);
+            txtbox_Console.AppendText("Store Version Uploader 1.0.3" + Environment.NewLine);
         }
 
 

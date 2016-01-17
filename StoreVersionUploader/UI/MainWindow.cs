@@ -29,7 +29,7 @@ namespace StoreVersionUploader
             cmbox_VersionType.SelectedIndex = 1;
             isWindowLoaded = true;
 
-            txtbox_Console.AppendText("Store Version Uploader 1.0" + Environment.NewLine);
+            txtbox_Console.AppendText("Store Version Uploader 1.0.2" + Environment.NewLine);
         }
 
 
@@ -108,10 +108,34 @@ namespace StoreVersionUploader
         {
             if(!isWindowLoaded) return;
         }
-        
+
+        private int RowIndex = -1;
+
         private void dtg_ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dtg_ProductList.Rows[e.RowIndex];
+            
+        }
+
+        private void dtg_ProductList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                RowIndex = e.RowIndex;
+
+                ContextMenu menu = new ContextMenu();
+                var use = menu.MenuItems.Add("Use");
+                var del = menu.MenuItems.Add("Delete");
+
+                use.Click += Use_Click;
+                del.Click += Del_Click;
+
+                menu.Show(this, PointToClient(Cursor.Position), LeftRightAlignment.Right);
+            }
+        }
+
+        private void Use_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dtg_ProductList.Rows[RowIndex];
 
 
             Utils.InvokeOn(txtbox_ProductId, () => txtbox_ProductId.Text = row.Cells[0].Value.ToString());
@@ -121,6 +145,22 @@ namespace StoreVersionUploader
 
 
             tabControl.SelectedIndex = 0;
+        }
+
+        private void Del_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dtg_ProductList.Rows[RowIndex];
+            
+            int productId = Convert.ToInt32(row.Cells[0].Value);
+
+            if(storeManager.DeleteProduct(productId))
+            {
+                dtg_ProductList.Rows.Remove(row);
+            }
+            else
+            {
+                MessageBox.Show("An error occured when deleting an entry.");
+            }
         }
         // STORE MANAGER //
     }

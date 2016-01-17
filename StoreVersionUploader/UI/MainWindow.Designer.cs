@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
@@ -387,6 +388,7 @@
             this.dtg_ProductList.Size = new System.Drawing.Size(414, 218);
             this.dtg_ProductList.TabIndex = 11;
             this.dtg_ProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_ProductList_CellDoubleClick);
+            this.dtg_ProductList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtg_ProductList_CellMouseClick);
             this.dtg_ProductList.SelectionChanged += new System.EventHandler(this.dtg_ProductList_SelectionChanged);
             // 
             // productId
@@ -491,6 +493,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 495);
             this.Controls.Add(this.tabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(454, 533);
             this.MinimumSize = new System.Drawing.Size(454, 533);

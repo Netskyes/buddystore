@@ -106,6 +106,12 @@ namespace StoreVersionUploader
             LoadProductsList();
         }
 
+        public bool DeleteProduct(int productId)
+        {
+            string query = String.Format("DELETE FROM products WHERE product_id={0}", productId);
+            return (sqlite.Execute(query) > 0) ? true : false;
+        }
+
         public void LoadProductsList()
         {
             SQLiteDataReader reader = sqlite.ExecuteReader("SELECT * FROM products ORDER BY id DESC");
